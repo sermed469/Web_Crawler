@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .bg-secondary{
+      background-color: #fff!important;    
+      } 
+      form{
+          text-align:center;
+      }
+      .text-white{
+          color:black!important;
+      }
+      .item{
+        border-top: 3px solid black;
+      }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="/">LG TELEVİZYON MODELLERİ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+
+    <br><br> <br><br>
+        
+    {% from "includes/form.html" import render_field %}
+
+      <form method = "POST">
+        {{ render_field(form.min_price) }}
+        {{ render_field(form.max_price) }}
+        <h5>Televizyon Boyutları</h5>
+        24<input type = "checkbox" value = "24 " name = "mycheckbox">
+        32<input type = "checkbox" value = "32 " name = "mycheckbox">
+        43<input type = "checkbox" value = "43 " name = "mycheckbox">
+        49<input type = "checkbox" value = "49 " name = "mycheckbox">
+        50<input type = "checkbox" value = "50 " name = "mycheckbox">
+        55<input type = "checkbox" value = "55 " name = "mycheckbox">
+        65<input type = "checkbox" value = "65 " name = "mycheckbox">
+        75<input type = "checkbox" value = "75 " name = "mycheckbox">
+        86<input type = "checkbox" value = "86 " name = "mycheckbox">
+        <br><br>
+        {{ form1.crf_token }}
+        {{ form1.site }}
+        <br><br>
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+    </form>
+  
+    <br><br>
+    {% for item in answer %}
+    <div class="item p-3 mb-2 bg-secondary text-white">
+        <div class="row featurette">
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" src={{item['tv_img'].replace('?160952','')}}>
+              </div>
+            <div class="col-md-7" >
+              <h1 class="lead">{{item['tv_Name']}}</h1>
+              <h1> <span class="badge badge-info">{{item['tv_Price']}} TL</span></h1>
+              <h2><a href={{item['page'].split("/")[0]+"//"+item['page'].split("/")[2]+item['nextPage']}} class="badge badge-primary">Ürün Sayfası</a></h2>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+   
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html> 
