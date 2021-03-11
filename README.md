@@ -1,5 +1,5 @@
 # Web Crawler
-INSTALLATION
+# INSTALLATION
 
 First you must install last version of python
 
@@ -16,7 +16,7 @@ Install Flask-WTF:
 -pip install Flask-WTF
 
 
-HOW TO RUN PROGRAM
+# HOW TO RUN PROGRAM
 
 To run crawling program you must write this command in Terminal:
 -cd LG/crawler/PSCrawler/spiders
