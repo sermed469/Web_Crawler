@@ -1,4 +1,3 @@
-# Web Crawler
 # INSTALLATION
 
 First you must install last version of python
